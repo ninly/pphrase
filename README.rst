@@ -15,10 +15,10 @@ This has **no expectation or intention** of being cryptographically secure, or a
 Usage
 -----
 
-It's easy:
+It's easy::
 
-    $ python pphrase.py    
-    correct horse battery staple    
+    $ python pphrase.py
+    correct horse battery staple
 
 To do
 -----
