@@ -17,8 +17,8 @@ Usage
 
 It's easy:
 
-    $ python pphrase.py
-    correct horse battery staple
+    $ python pphrase.py    
+    correct horse battery staple    
 
 To do
 -----
