@@ -1,7 +1,12 @@
 pphrase
 =======
 
-This script generates a 4-random-word passphrase (à la xkcd) using the 10,000 most common English words as determined by n-gram frequency analysis of Google's Trillion Word Corpus (courtesy_ of `Josh Kaufman`_)
+This script generates a 4-random-word passphrase (à la xkcd) using the 10,000
+most common English words as determined by n-gram frequency analysis of
+Google's Trillion Word Corpus (courtesy_ of `Josh Kaufman`_).
+
+This was a morning-coffee project; just getting used to git submodules and the
+github interface
 
 .. _courtesy: https://github.com/first20hours/google-10000-english
 
@@ -10,7 +15,8 @@ This script generates a 4-random-word passphrase (à la xkcd) using the 10,000 m
 Important!
 ----------
 
-This has **no expectation or intention** of being cryptographically secure, or a good idea to actually use in generating passphrases.
+This has **no expectation or intention** of being cryptographically secure, or
+a good idea to actually use in generating passphrases.
 
 Usage
 -----
