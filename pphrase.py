@@ -1,6 +1,6 @@
 """
 pphrase.py : generate 4-word random passphrase from 10,000 most common words in
-Google N-grams, discounting words <= 2 letters long. 
+Google N-grams, discounting words <= 2 letters long.
 
 TODO:
   * allow for command-line argument to indicate phassphrase length in words
@@ -8,8 +8,11 @@ TODO:
 """
 
 import random
+import os
 
-def getwords(filename = 'wordlist/google-10000-english.txt'):
+basedir = os.path.dirname(os.path.abspath(__file__))+'/'
+
+def getwords(filename = basedir+'wordlist/google-10000-english.txt'):
     with open(filename,'r') as f:
         lines = list(f)
     f.close()
@@ -17,7 +20,7 @@ def getwords(filename = 'wordlist/google-10000-english.txt'):
     words = list()
 
     for line in lines:
-        if len(line.strip()) > 2:
+        if len(line.strip()) > 2 and len(line.strip()) < 10:
             words.append(line.strip())
 
     return words
