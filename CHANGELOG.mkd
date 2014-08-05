@@ -1,0 +1,20 @@
+## 0.0.1 | 28 Mar 2014
+
+Features:
+
+    * Existence!
+    * Simple, 4-word select from top-10,000 words in Google N-Grams
+
+## 0.0.2 | 6 Aug 2014
+
+Features:
+
+    * Command-line parsing using docopt
+    * Allow user to specify:
+        - number of words in passphrase
+        - number of words in top-10,000 to choose from
+        - minimum and maximum word length
+
+Bugfixes:
+
+    * Wordlength bounds (previously hardcoded) inclusive instead of exclusive
