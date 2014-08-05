@@ -1,8 +1,9 @@
 """
 pphrase.py :
 
-    Generate random passphrase from 10,000 most common words in Google N-grams
-    (see http://xkcd.com/936).
+    Generate a random passphrase from the most common words (max 10000)
+    in Google's trillion-word corpus. See http://xkcd.com/936 for the
+    motivation and inspiration.
 
     Licensed under terms of MIT license (see LICENSE-MIT)
     Copyright (c) 2014 Jason Conklin, <j@ninly.net>
@@ -13,15 +14,19 @@ Usage:
 Options:
     -h --help                       Show usage help (this screen).
     -v --version                    Show version number and exit.
-    -w N --words=N                  Number of words in passphrase [default: 4].
-    -m MAXWORD --maxword=MAXWORD    Maximum word length, in characters [default: 10].
-    -n MINWORD --minword=MINWORD    Maximum word length, in characters [default: 2].
-    -p POOL --poolsize=POOL         Select from most common POOL words [default: 10000].
+    -w N --words=N                  Number of words in passphrase
+                                    [default: 4].
+    -m MAXWORD --maxword=MAXWORD    Maximum word length, in characters
+                                    [default: 10].
+    -n MINWORD --minword=MINWORD    Maximum word length, in characters
+                                    [default: 2].
+    -p POOL --poolsize=POOL         Select from most common POOL words
+                                    [default: 2048].
 
 """
 
-import random
 import os
+import random
 from docopt import docopt
 
 basedir = os.path.dirname(os.path.abspath(__file__))+'/'
