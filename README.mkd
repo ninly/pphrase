@@ -1,18 +1,21 @@
 # pphrase
 
-This script generates a 4-random-word passphrase (à la http://xkcd.com/936)
-using the 10,000 most common English words as determined by n-gram frequency
-analysis of Google's Trillion Word Corpus
-([courtesy](https://github.com/first20hours/google-10000-english)
+Generate a 4-random-word passphrase (à la http://xkcd.com/936)
+using the 10,000 most common English words as determined by
+n-gram frequency analysis of Google's Trillion Word Corpus
+([courtesy](https://github.com/first20hours/google-10000-english) of
 [Josh Kaufman](http://first20hours.com/)).
 
-This began as a morning-coffee project, just getting used to git submodules and the
-github interface, and continued as a similar exploration of [docopt](https://github.com/docopt/docopt).
+This began as a morning-coffee project, just getting familiar with
+git submodules and the github interface. It continued as a similar
+exploration of [docopt](https://github.com/docopt/docopt) and other git
+and Python features.
 
 ## Important!
 
-This has **no expectation or intention** of being cryptographically secure, or
-a good idea to actually use in generating passphrases.
+This has **no expectation or intention** of being cryptographically
+secure, or a good idea to actually use in generating passphrases that
+demand security.
 
 ## Usage
 
@@ -29,7 +32,7 @@ for a list of options.
 
 ## Installation
 
-If you're not familiar with git submodules, after cloning this repo:
+If you're not familiar with git submodules, clone this repo, then:
 
     $ git submodule init
     $ git submodule update
@@ -39,4 +42,3 @@ If you're not familiar with git submodules, after cloning this repo:
   * Prevent possibility of word repetition in output
   * Allow specification of min and max passphrase length, irrespective
     of component word length spec
-  * Improve security
