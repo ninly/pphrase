@@ -34,7 +34,7 @@ from docopt import docopt
 basedir = os.path.dirname(os.path.abspath(__file__))+'/'
 
 if __name__ == "__main__":
-    arguments = docopt(__doc__, version='0.0.3')
+    arguments = docopt(__doc__, version='0.0.4')
 
 
 class ArgError(Exception):
