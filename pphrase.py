@@ -92,6 +92,7 @@ def get_pool(filename = basedir+'wordlist/google-10000-english.txt'):
         print('Could not even: {}'.format(e))
         return
     except:
+        print('Could not even: {}'.format(e))
         return
     else:
         words = list(words)[:poolsize]
@@ -114,12 +115,24 @@ def get_mode():
 
 def build_pph(numwords, mode='normal'):
     """Build the passphrase."""
-    wordpool = get_pool()
+    try:
+        wordpool = get_pool()
+        if not wordpool:
+            raise ValueError('Could not generate specified word pool.')
+        if len(wordpool) < numwords:
+            raise ValueError('Word pool not large enough to generate '\
+                            +'passphrase of specified length.')
+    except ValueError as e:
+        print('Could not even: {}'.format(e))
+        return
+
     pph_words = list()
     pph_str = str()
-    if wordpool:
-        for i in range(numwords):
-            pph_words.append(random.choice(wordpool))
+    while len(pph_words) < numwords:
+        next_word = random.choice(wordpool)
+        if next_word not in pph_words:
+            pph_words.append(next_word)
+
     if (mode == 'normal'):
         pph_str = ' '.join(pph_words)
     if (mode == 'running'):
@@ -146,7 +159,7 @@ def main():
     numwords = int(arguments['--words'])
     mode = get_mode()
     pph = build_pph(numwords, mode)
-    print(pph)
+    if pph: print(pph)
 
 
 if __name__ == "__main__":

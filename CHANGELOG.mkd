@@ -39,3 +39,4 @@ Features:
 
   * Add switch to produce CamelCase, Title Case, runtogether,
     or normal string output
+  * Prevent word repetition in passphrase
