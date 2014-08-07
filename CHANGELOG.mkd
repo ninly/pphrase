@@ -32,3 +32,10 @@ Bugfixes:
   * Wait until after words are culled for length before trimming word
     pool to specified size (and check that numwords are available)
   * Reformat unordered lists in markdown files
+
+## 0.0.4 | unreleased
+
+Features:
+
+  * Add switch to produce CamelCase, Title Case, runtogether,
+    or normal string output
