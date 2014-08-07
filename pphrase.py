@@ -8,18 +8,22 @@
     Copyright (c) 2014 Jason Conklin, <j@ninly.net>
 
 Usage:
-    pphrase.py [ options ]
+    pphrase.py [ -L | -R | -C | -T ] [ options ]
 
 Options:
-    -h --help                       Show usage help (this screen).
-    -v --version                    Show version number and exit.
-    -w N --words=N                  Number of words in passphrase
+    -h, --help                      Show usage help (this screen).
+    -v, --version                   Show version number and exit.
+    -L, --normal                    Normal output (like this) [default].
+    -R, --running                   Run output together (likethis).
+    -C, --camelcase                 Output in CamelCase (LikeThis).
+    -T, --titlecase                 Output in Title Case (Like This).
+    -w N, --words=N                 Number of words in passphrase
                                     [default: 4].
-    -m MAXWORD --maxword=MAXWORD    Maximum word length, in characters
+    -m MAXWORD, --maxword=MAXWORD   Maximum word length, in characters
                                     [default: 10].
-    -n MINWORD --minword=MINWORD    Maximum word length, in characters
+    -n MINWORD, --minword=MINWORD   Maximum word length, in characters
                                     [default: 2].
-    -p POOL --poolsize=POOL         Select from most common POOL words
+    -p POOL, --poolsize=POOL        Select from most common POOL words
                                     [default: 2048].
 """
 
@@ -95,6 +99,43 @@ def get_pool(filename = basedir+'wordlist/google-10000-english.txt'):
     return words
 
 
+def get_mode():
+    mode = str()
+    if arguments['--running']:
+        mode = 'running'
+    elif arguments['--camelcase']:
+        mode = 'camelcase'
+    elif arguments['--titlecase']:
+        mode = 'titlecase'
+    else:
+        mode = 'normal'
+    return mode
+
+
+def build_pph(numwords, mode='normal'):
+    """Build the passphrase."""
+    wordpool = get_pool()
+    pph_words = list()
+    pph_str = str()
+    if wordpool:
+        for i in range(numwords):
+            pph_words.append(random.choice(wordpool))
+    if (mode == 'normal'):
+        pph_str = ' '.join(pph_words)
+    if (mode == 'running'):
+        pph_str = ''.join(pph_words)
+    if (mode == 'titlecase'):
+        for i in xrange(numwords):
+            pph_words[i] = pph_words[i].capitalize()
+        pph_str = ' '.join(pph_words)
+    if (mode == 'camelcase'):
+        for i in xrange(numwords):
+            pph_words[i] = pph_words[i].capitalize()
+        pph_str = ''.join(pph_words)
+    return pph_str
+
+
+
 def main():
     """Output passphrase."""
     try:
@@ -103,10 +144,9 @@ def main():
         return
 
     numwords = int(arguments['--words'])
-    wordpool = get_pool()
-    if wordpool:
-        for i in range(numwords):
-            print random.choice(wordpool),
+    mode = get_mode()
+    pph = build_pph(numwords, mode)
+    print(pph)
 
 
 if __name__ == "__main__":
