@@ -5,7 +5,7 @@
     http://xkcd.com/936 for the motivation and inspiration.
 
     Licensed under terms of MIT license (see LICENSE-MIT)
-    Copyright (c) 2014 Jason Conklin, <j@ninly.net>
+    Copyright (c) 2014-2026 Jason Conklin
 
 Usage:
     pphrase.py [ -L | -R | -C | -T ] [ options ]
@@ -138,11 +138,11 @@ def build_pph(numwords, mode='normal'):
     if (mode == 'running'):
         pph_str = ''.join(pph_words)
     if (mode == 'titlecase'):
-        for i in xrange(numwords):
+        for i in range(numwords):
             pph_words[i] = pph_words[i].capitalize()
         pph_str = ' '.join(pph_words)
     if (mode == 'camelcase'):
-        for i in xrange(numwords):
+        for i in range(numwords):
             pph_words[i] = pph_words[i].capitalize()
         pph_str = ''.join(pph_words)
     return pph_str
